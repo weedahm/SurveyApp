@@ -4,48 +4,196 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_blur"
+    android:fitsSystemWindows="true"
+    >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:gravity="center"
-    android:orientation="vertical">
+<!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="#fff"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="vertical">-->
 
-    <ImageView
-        android:id="@+id/testID"
-        android:src="@drawable/logo"
+    <!--<ImageView-->
+        <!--android:id="@+id/testID"-->
+        <!--android:src="@drawable/logo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="150dp"-->
+        <!--tools:ignore="ContentDescription,MissingConstraints" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/activity_survey"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:background="@drawable/bg_blue_gradient"-->
+        <!--android:text="설 문"-->
+        <!--android:textSize="50dp"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textStyle="bold"-->
+        <!--android:gravity="center"-->
+        <!--android:onClick="onClick"-->
+        <!--tools:ignore="HardcodedText,MissingConstraints,SpUsage" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/activity_history"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:background="@drawable/bg_blue_gradient"-->
+    <!--android:text="기 록"-->
+    <!--android:textSize="50dp"-->
+    <!--android:textColor="#fff"-->
+    <!--android:textStyle="bold"-->
+    <!--android:gravity="center"-->
+    <!--android:onClick="onClick2"-->
+    <!--tools:ignore="HardcodedText,MissingConstraints,SpUsage" />-->
+
+<!--</LinearLayout>-->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_shadow"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/appointment_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_blue_gradient"
+        app:img="@drawable/ic_calendar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="1.0"
+        app:text="@string/main_appointments">
+
+    </com.example.myapplication.Views.MainButton>
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/survey_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_red_gradient"
+        app:img="@drawable/ic_survey"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:text="@string/main_survey">
+
+    </com.example.myapplication.Views.MainButton>
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/history_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/bg_purple_gradient"
+        app:img="@drawable/ic_history"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:text="@string/main_history">
+
+    </com.example.myapplication.Views.MainButton>
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/report_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_orange_gradient"
+        app:img="@drawable/ic_reports"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:text="@string/main_reports" />
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/patients_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_green_gradient"
+        app:img="@drawable/ic_patients"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:text="@string/main_patients" />
+
+    <com.example.myapplication.Views.MainButton
+        android:id="@+id/settings_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_pink_gradient"
+        app:img="@drawable/ic_settings"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:text="@string/main_settings" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
-    <Button
-        android:id="@+id/survey"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:background="@drawable/button"
-        android:text="설 문"
-        android:textSize="50dp"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:onClick="onClick"
-        tools:ignore="HardcodedText,MissingConstraints,SpUsage" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-    <Button
-    android:id="@+id/record"
-    android:layout_width="200dp"
-    android:layout_height="100dp"
-    android:background="@drawable/button"
-    android:text="기 록"
-    android:textSize="50dp"
-    android:textColor="#fff"
-    android:textStyle="bold"
-    android:gravity="center"
-    android:onClick="onClick2"
-    tools:ignore="HardcodedText,MissingConstraints,SpUsage" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-</LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.64" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.91" />
 </android.support.constraint.ConstraintLayout>

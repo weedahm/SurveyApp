@@ -1,9 +1,14 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -32,6 +37,13 @@ public class HistoryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.PURPLE));
+//        }
+
         mListView = findViewById(R.id.patientList);
         mTextView = findViewById(R.id.record);
 
@@ -51,17 +63,17 @@ public class HistoryActivity extends Activity {
 
                 ArrayList<String> array = new ArrayList<>();
 
-                for(PatientListVO re : resource){
+                for (PatientListVO re : resource) {
                     array.add(re.getPatientId());
-
                 }
+
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(HistoryActivity.this, android.R.layout.simple_list_item_1, array);
                 mListView.setAdapter(adapter);
 
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String vo = (String)parent.getAdapter().getItem(position);
+                        String vo = (String) parent.getAdapter().getItem(position);
 
                         Call<PatientDataVO> callData = mRetrofitAPI.getPatientData(vo);
 
@@ -80,6 +92,7 @@ public class HistoryActivity extends Activity {
                     }
                 });
             }
+
             @Override
             public void onFailure(Call<List<PatientListVO>> call, Throwable t) {
             }

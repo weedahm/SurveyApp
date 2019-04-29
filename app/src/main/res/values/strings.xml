@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">위담한방병원</string>
+    <string name="main_appointments">예약 조회</string>
+    <string name="main_survey">설문</string>
+    <string name="main_history">설문 기록</string>
+    <string name="main_reports">리포트</string>
+    <string name="main_patients">환자 기록</string>
+    <string name="main_settings">설정</string>
 </resources>
