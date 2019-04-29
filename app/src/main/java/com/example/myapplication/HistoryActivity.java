@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class recordView extends Activity {
+public class HistoryActivity extends Activity {
 
     private Retrofit mRetrofit;
     private RetrofitAPI mRetrofitAPI;
@@ -29,10 +30,10 @@ public class recordView extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.record);
+        setContentView(R.layout.activity_history);
 
-        mListView=(ListView)findViewById(R.id.patientList);
-        mTextView=(TextView)findViewById(R.id.record);
+        mListView = findViewById(R.id.patientList);
+        mTextView = findViewById(R.id.record);
 
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -41,7 +42,6 @@ public class recordView extends Activity {
 
         mRetrofitAPI = mRetrofit.create(RetrofitAPI.class);
         Call<List<PatientListVO>> call = mRetrofitAPI.getPatientList();
-
 
         call.enqueue(new Callback<List<PatientListVO>>() {
             @Override
@@ -55,7 +55,7 @@ public class recordView extends Activity {
                     array.add(re.getPatientId());
 
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(recordView.this, android.R.layout.simple_list_item_1, array);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(HistoryActivity.this, android.R.layout.simple_list_item_1, array);
                 mListView.setAdapter(adapter);
 
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
