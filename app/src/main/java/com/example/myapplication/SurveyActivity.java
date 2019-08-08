@@ -23,7 +23,7 @@ public class SurveyActivity extends Activity {
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.RED));
         }
 
-        String url = "https://docs.google.com/forms/d/e/1FAIpQLSfX3ej4QJzt1a8a7_TtIsN2aICC4nizamth2J7NzccKgh1uHw/viewform";
+        String url = "http://54.180.99.155:8002/parse/";
         WebView webView = findViewById(R.id.survey);
         webView.setWebViewClient(new WebViewClient());
 
